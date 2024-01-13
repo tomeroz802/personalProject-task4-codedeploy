@@ -1,15 +1,18 @@
 version: 0.0
 os: linux
+files:
+  - source: / 
+    destenation: /project
 hooks:
   BeforeInstall:
-    - location: script/install-docker.sh
+    - location: scripts/install-docker.sh
       timeout: 60
       runas: root
   MiddleInstall:    
-    - location: script/run-docker-image.sh
+    - location: scripts/run-docker-image.sh
       timeout: 60
       runas: root
   ApplicationStop:
-    - location: script/stop-docker.sh
+    - location: scripts/stop-docker.sh
       timeout: 300
       runas: root
